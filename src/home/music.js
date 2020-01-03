@@ -31,7 +31,7 @@ export const Music = () => {
       </Controls>
       <audio id="homeMusic">
         <source
-          src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Ziklibrenbib/Tintamare/st/Tintamare_-_04_-_Propane.mp3"
+          src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Ziklibrenbib/Tintamare/st/Tintamare_-_02_-_Caracas.mp3"
           type="audio/mpeg"
         />
       </audio>
