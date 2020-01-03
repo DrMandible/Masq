@@ -1,2 +1,0 @@
-# Masq
-Created with CodeSandbox

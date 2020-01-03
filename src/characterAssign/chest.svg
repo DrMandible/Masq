@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <path fill="#8c421c" d="M50 19H14c-3 4-4 9-4 13v3l1 18h42l1-18v-3c0-4-1-9-4-13z"/>
+  <path fill="#fdb62f" d="M21 19l-3 9v25h4V28l3-9zM43 19h-4l3 9v25h4V28l-3-9z"/>
+  <path fill="#db9e29" d="M18 39h4v2h-4zM42 39h4v2h-4z"/>
+  <g fill="#fdb62f">
+    <path d="M3 12h2v2H3zM5 14h2v2H5zM7 12h2v2H7zM5 10h2v2H5zM46 12h2v2h-2zM48 14h2v2h-2zM50 12h2v2h-2zM48 10h2v2h-2zM55 9h2v2h-2zM52 5h2v2h-2zM12 14h2v2h-2zM12 6h2v2h-2z"/>
+  </g>
+  <path fill="#783918" d="M11 53v2l18 3 3-2 3 2 18-3v-2z"/>
+  <path fill="#fdb62f" d="M60 28c-1-5-5-9-10-9 3 4 4 9 4 13v3l-1 20v3h6l1-16a69 69 0 000-14zM14 19c-5 0-9 4-10 9v14l1 16h6v-3l-1-20v-3c0-4 1-9 4-13z"/>
+  <path fill="#edab2c" d="M11 52H4l1 6h6v-3zM53 52v6h6l1-6z"/>
+  <path fill="#30160a" d="M7 32a1 1 0 110-2 1 1 0 010 2zM7 40a1 1 0 110-2 1 1 0 010 2zM7 48a1 1 0 110-2 1 1 0 010 2zM57 32a1 1 0 110-2 1 1 0 010 2zM57 40a1 1 0 110-2 1 1 0 010 2zM57 48a1 1 0 110-2 1 1 0 010 2z"/>
+  <path d="M3 34h58v2H3z" opacity=".2"/>
+  <path fill="#30160a" d="M34 41v-2a4 4 0 10-4 0v2a6 6 0 114 0z"/>
+  <path fill="#fdb62f" d="M36 41h-1v-1a3 3 0 00-6 0v1h-1l-1 1v8l1 1h8l1-1v-8l-1-1zm-5-1a1 1 0 012 0v1h-2z"/>
+  <path fill="#30160a" d="M33 45a1 1 0 00-2 0v4h2v-3-1z"/>
+</svg>
