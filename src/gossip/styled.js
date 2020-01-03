@@ -8,6 +8,7 @@ export const NPCWrapper = styled.div`
   justify-items: space-around;
   justify-content: space-around;
   width: 85vw;
+
   /* padding: 0.75rem; */
 `;
 

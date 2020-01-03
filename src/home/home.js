@@ -4,7 +4,7 @@ import { character } from "../characterAssign/character";
 
 import "./styles.css";
 
-import * as div from "./styled";
+import * as Styled from "./styled";
 
 export const HomeScreen = () => {
   const [modal, setModal] = React.useState(true);
@@ -18,7 +18,7 @@ export const HomeScreen = () => {
   const StartButton = () => {
     return (
       <>
-        <div.PopUp />
+        <Styled.PopUp />
       </>
     );
   };
@@ -27,16 +27,17 @@ export const HomeScreen = () => {
 
   return (
     <>
-      <div.BackgroundEffectsWrapper>
-        <div.Flare />
-      </div.BackgroundEffectsWrapper>
-      <div.BackgroundWrapper>
+      <Styled.BackgroundWrapper>
+        {/* <Styled.Pulsing /> */}
+        <Styled.BackgroundEffectsWrapper>
+          <Styled.Flare />
+        </Styled.BackgroundEffectsWrapper>
         {/* <Styled.BackgroundImage /> */}
         <div>
-          <div.MasqTitle className="Masq">Masq</div.MasqTitle>
+          <Styled.MasqTitle className="Masq">Masq</Styled.MasqTitle>
         </div>
         <div>
-          <input
+          {/* <input
             placeholder="Player Name"
             onChange={e => {
               handleNameChange(e.target.value);
@@ -44,7 +45,7 @@ export const HomeScreen = () => {
             onSubmit={e => {
               handleNameChange(e.target.value);
             }}
-          />
+          /> */}
           {/* <input
             placeholder="Game Room"
             onChange={e => {
@@ -52,16 +53,14 @@ export const HomeScreen = () => {
             }}
           /> */}
         </div>
-        <div.ButtonWrapper onClick={() => StartButton()}>
+        <Styled.ButtonWrapper onClick={() => StartButton()}>
           <nav>
-            <Link to="characterAssign">
-              <div.StartButton>
-                Put on your<div className="MasqInline">Masq</div>
-              </div.StartButton>
+            <Link to="characterAssign" style={{ textDecoration: "none" }}>
+              <Styled.StartButton>Play</Styled.StartButton>
             </Link>
           </nav>
-        </div.ButtonWrapper>
-      </div.BackgroundWrapper>
+        </Styled.ButtonWrapper>
+      </Styled.BackgroundWrapper>
     </>
   );
 };

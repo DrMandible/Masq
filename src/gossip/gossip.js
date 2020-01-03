@@ -17,28 +17,33 @@ const NPCList = () => {
       {x.map((npc, key) => (
         <div key={key}>
           <Styled.TextWrapper onClick={() => setShow({ npc })}>
-            <Styled.TextDivider
-              bgColor={Object.values(AllNPC)[key].color.secondary}
-            >
-              <StyledGossip.NPCWrapper>
+            <StyledGossip.NPCWrapper>
+              <Styled.TextDivider
+                bgColor={Object.values(AllNPC)[key].color.primary}
+              >
                 <Styled.TextDivider
-                  bgColor={Object.values(AllNPC)[key].color.primary}
+                  bgColor={Object.values(AllNPC)[key].color.secondary}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center"
+                  }}
                 >
                   {npc}
                   <div>{Object.values(AllNPC)[key].charm}</div>
+                  <StyledGossip.IconWrapper>
+                    <StyledGossip.Icon
+                      sparkle1={"purple"}
+                      sparkle2={"pink"}
+                      rightEye={Object.values(AllNPC)[key].color.primary}
+                      leftEye={Object.values(AllNPC)[key].color.primary}
+                    >
+                      <Mask />
+                    </StyledGossip.Icon>
+                  </StyledGossip.IconWrapper>
                 </Styled.TextDivider>
-                <StyledGossip.IconWrapper>
-                  <StyledGossip.Icon
-                    sparkle1={"purple"}
-                    sparkle2={"pink"}
-                    rightEye={Object.values(AllNPC)[key].color.primary}
-                    leftEye={Object.values(AllNPC)[key].color.primary}
-                  >
-                    <Mask />
-                  </StyledGossip.Icon>
-                </StyledGossip.IconWrapper>
-              </StyledGossip.NPCWrapper>
-            </Styled.TextDivider>
+              </Styled.TextDivider>
+            </StyledGossip.NPCWrapper>
           </Styled.TextWrapper>
         </div>
       ))}

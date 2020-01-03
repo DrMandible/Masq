@@ -44,41 +44,7 @@ const vibrate = keyframes`
     }
   `;
 
-const shake = keyframes`
-      0%,
-    100% {
-      -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-      -webkit-transform-origin: 50% 0;
-              transform-origin: 50% 0;
-    }
-    10% {
-      -webkit-transform: rotate(2deg);
-              transform: rotate(2deg);
-    }
-    20%,
-    40%,
-    60% {
-      -webkit-transform: rotate(-4deg);
-              transform: rotate(-4deg);
-    }
-    30%,
-    50%,
-    70% {
-      -webkit-transform: rotate(4deg);
-              transform: rotate(4deg);
-    }
-    80% {
-      -webkit-transform: rotate(-2deg);
-              transform: rotate(-2deg);
-    }
-    90% {
-      -webkit-transform: rotate(2deg);
-              transform: rotate(2deg);
-    }
-  `;
-
-const pulse = keyframes`
+const spin = keyframes`
   0% {
     opacity: 0.4
     transform: rotate(0deg) scale(1);
@@ -94,8 +60,32 @@ const pulse = keyframes`
   }
 `;
 
+const pulse = keyframes`
+  0% {
+    opacity: 0.4
+  }
+  50% {
+    opacity: 0.8
+    
+  }
+  100% {
+    opacity: 0.4
+  }
+`;
+
+export const Pulsing = styled.div`
+  z-index: 101;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: red;
+  animation: ${pulse};
+`;
+
 export const BackgroundEffectsWrapper = styled.div`
-  z-index: -101;
+  z-index: 101;
   position: absolute;
   left: -29vh;
   top: -15vh;
@@ -106,11 +96,7 @@ export const BackgroundEffectsWrapper = styled.div`
   -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
   transform: rotate(45deg); /* Standard syntax */
   pointer-events: none;
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(0, 0, 0, 0.9),
-    rgba(255, 255, 255, 0.5)
-  );
+  background: transparent;
 `;
 
 export const Flare = styled.div`
@@ -121,11 +107,16 @@ export const Flare = styled.div`
   background-size: cover;
   overflow: hidden !important;
   mix-blend-mode: color-dodge;
-  animation: ${pulse} 10s linear infinite;
+  animation: ${spin} 10s linear infinite;
+  z-index: -1;
 `;
 
 export const BackgroundWrapper = styled.div`
   z-index: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 1);
   overflow: hidden;
   min-height: 100vh;
   max-height: 100vh;
@@ -135,6 +126,7 @@ export const BackgroundWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  animation: ${pulse};
   input {
     margin: 1rem;
     font-size: 1.5rem;
@@ -156,7 +148,7 @@ export const PopUp = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  z-index: 100;
+  z-index: 200;
   width: 70vw;
   height: 10vh;
   :hover {
@@ -168,7 +160,7 @@ export const ButtonWrapper = styled.div`
 
 export const StartButton = styled.button`
   font-family: "Source Serif Pro";
-  z-index: 100;
+  z-index: 200;
   color: white;
   width: 70vw;
   height: 10vh;
@@ -181,49 +173,10 @@ export const StartButton = styled.button`
   justify-content: center;
 `;
 
-export const BackgroundImage = styled.div`
-  z-index: -900;
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  /* background-image: url(https://i.imgur.com/kHY9lRg.jpg); */
-  background-size: cover;
-  opacity: 1;
-`;
-
 export const MasqTitle = styled.div`
-  z-index: 100;
-  font-family: "Source Serif Pro";
+  z-index: 200;
   color: rgba(0, 0, 0, 1);
   font-size: 10rem;
-  margin: -1.5rem;
-  padding: -30rem;
-  -webkit-animation: ${flipVerticalFwd} 0.4s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: ${flipVerticalFwd} 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-    both;
-  animation-delay: ${props => props.delay};
-`;
-
-export const TitleArticle = styled.div`
-  z-index: 100;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 1.5rem;
-  margin-top: -1.5rem;
-  margin-bottom: -2rem;
-  padding: -30rem;
-  -webkit-animation: ${flipVerticalFwd} 0.4s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: ${flipVerticalFwd} 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-    both;
-  animation-delay: ${props => props.delay};
-`;
-
-export const Title = styled.div`
-  z-index: 100;
-  font-family: "Source Serif Pro";
-  color: rgba(0, 0, 0, 1);
-  font-size: 3.5rem;
   margin: -1.5rem;
   padding: -30rem;
   -webkit-animation: ${flipVerticalFwd} 0.4s
