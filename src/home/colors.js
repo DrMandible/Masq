@@ -47,7 +47,7 @@ let Choices = () => {
 export const Colors = props => {
   return (
     <>
-      <Styled.TextDivider bgColor="green">
+      <Styled.TextDivider bgColor="white">
         <h1
           style={{
             display: "flex",
