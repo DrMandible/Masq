@@ -9,32 +9,30 @@ import { NPC } from "../database/players.js";
 let AllNPC = NPC();
 
 const NPCList = () => {
-  const [show, setShow] = React.useState("");
-  console.log(show);
   let x = Object.keys(AllNPC).map((npc, key) => npc);
   return (
     <div>
       {x.map((npc, key) => (
         <div key={key}>
-          <Styled.TextWrapper onClick={() => setShow({ npc })}>
+          <Styled.TextWrapper>
             <StyledGossip.NPCWrapper>
               <Styled.TextDivider
-                bgColor={Object.values(AllNPC)[key].color.primary}
+                bgColor={Object.values(AllNPC)[key].color.secondary}
               >
                 <Styled.TextDivider
-                  bgColor={Object.values(AllNPC)[key].color.secondary}
+                  bgColor={Object.values(AllNPC)[key].color.background}
                   style={{
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "center"
+                    justifyContent: "flex-end"
                   }}
                 >
                   {npc}
                   <div>{Object.values(AllNPC)[key].charm}</div>
                   <StyledGossip.IconWrapper>
                     <StyledGossip.Icon
-                      sparkle1={"purple"}
-                      sparkle2={"pink"}
+                      sparkle1={Object.values(AllNPC)[key].color.secondary}
+                      sparkle2={Object.values(AllNPC)[key].color.secondary}
                       rightEye={Object.values(AllNPC)[key].color.primary}
                       leftEye={Object.values(AllNPC)[key].color.primary}
                     >
@@ -65,7 +63,7 @@ export const Gossip = props => {
             <NPCList />
           </>
         ) : (
-          <Styled.TextDivider bgColor={palette.secondary}>
+          <Styled.TextDivider bgColor={palette.background}>
             <div>
               <b>Gossip</b>
             </div>

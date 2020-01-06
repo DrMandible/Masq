@@ -1,4 +1,5 @@
 var UI = { secret: false, gossip: false };
+var Home = { input: false };
 const UIController = (e, data) => {
   console.log(data);
   switch (e) {
@@ -16,6 +17,9 @@ const UIController = (e, data) => {
       UI.name === "Liam Bot"
         ? (UI = { secret: false, gossip: true })
         : (UI = { secret: false, gossip: false });
+      break;
+    case "playerInput":
+      Home.input ? (Home.input = false) : (Home.input = true);
       break;
     default:
       break;

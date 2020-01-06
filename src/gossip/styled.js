@@ -7,7 +7,7 @@ export const NPCWrapper = styled.div`
   align-items: center;
   justify-items: space-around;
   justify-content: space-around;
-  width: 85vw;
+  width: 90vw;
 
   /* padding: 0.75rem; */
 `;
@@ -15,7 +15,7 @@ export const NPCWrapper = styled.div`
 export const Icon = styled.svg`
   width: 3rem;
   height: 3rem;
-  --sparkle1: ${props => props.sparkle1};
+  --sparkle1: ${props => props.leftEye};
   --sparkle2: ${props => props.sparkle2};
   --left-eye-shadow: ${props => props.leftEyeShadow};
   --left-eye: ${props => props.leftEye};
@@ -24,5 +24,5 @@ export const Icon = styled.svg`
 `;
 export const IconWrapper = styled.div`
   height: 3rem;
-  margin: 1rem;
+  margin: 0.5rem;
 `;

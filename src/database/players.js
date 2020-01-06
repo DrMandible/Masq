@@ -1,6 +1,3 @@
-import { character } from "../characterAssign/character";
-import { masks } from "../characterAssign/masks";
-
 var NPCList = {
   "Liam Bot": {
     GameRoom: 123,
@@ -8,7 +5,7 @@ var NPCList = {
     secretID: 999,
     charm: 7,
     Clues: [],
-    color: { primary: "rgb(153, 153, 255)", secondary: "green" }
+    color: { primary: "violet", background: "rgb(66, 0, 0)", secondary: "cyan" }
   },
   "Gibson Bot": {
     GameRoom: 123,
@@ -16,7 +13,7 @@ var NPCList = {
     secretID: 999,
     charm: 7,
     Clues: [],
-    color: { primary: "lightgreen", secondary: "rgb(204, 0, 102)" }
+    color: { primary: "rgb(204, 255, 204)", secondary: "rgb(0, 0, 102)  " }
   },
   "Passkwa Bot": {
     GameRoom: 123,
@@ -24,7 +21,7 @@ var NPCList = {
     secretID: 999,
     charm: 7,
     Clues: [],
-    color: { primary: "chartreuse", secondary: "coral" }
+    color: { primary: "PaleTurquoise ", secondary: "Maroon  " }
   },
   "Mike Bot": {
     GameRoom: 123,
@@ -32,7 +29,7 @@ var NPCList = {
     secretID: 999,
     charm: 7,
     Clues: [],
-    color: { primary: "magenta", secondary: "olive" }
+    color: { primary: "rgb(255, 255, 153)", secondary: "rgb(36, 17, 0)" }
   },
   "Dave Bot": {
     GameRoom: 123,
@@ -40,8 +37,19 @@ var NPCList = {
     secretID: 999,
     charm: 7,
     Clues: [],
-    color: { primary: "rgb(255, 105, 15)", secondary: "violet" }
+    color: { primary: "rgb(255, 153, 102)", secondary: "rgb(85, 0, 85)" }
   }
+};
+
+export const character = {
+  Name: "New",
+  GameRoom: "",
+  mask: 1,
+  secretID: 1,
+  charm: 7,
+  Clues: [],
+  design: "",
+  color: { primary: "lightgray", secondary: "gray" }
 };
 
 export const NPC = () => {

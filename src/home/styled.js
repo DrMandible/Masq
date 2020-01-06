@@ -46,16 +46,16 @@ const vibrate = keyframes`
 
 const spin = keyframes`
   0% {
-    opacity: 0.4
+    opacity: 0.1
     transform: rotate(0deg) scale(1);
   }
   50% {
-    opacity: 0.8
+    opacity: 0.3
     transform: rotate(180deg) scale(1.5);
     
   }
   100% {
-    opacity: 0.4
+    opacity: 0.1
     transform: rotate(360deg) scale(1);
   }
 `;
@@ -79,7 +79,7 @@ export const Pulsing = styled.div`
   top: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none;
+  /* pointer-events: none; */
   background: red;
   animation: ${pulse};
 `;
@@ -87,16 +87,17 @@ export const Pulsing = styled.div`
 export const BackgroundEffectsWrapper = styled.div`
   z-index: 101;
   position: absolute;
-  left: -29vh;
-  top: -15vh;
+  left: -25vh;
+  top: -25vh;
   height: 150vh;
   width: 150vh;
   overflow: hidden !important;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Safari prior 9.0 */
-  transform: rotate(45deg); /* Standard syntax */
-  pointer-events: none;
-  background: transparent;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 `;
 
 export const Flare = styled.div`
@@ -116,7 +117,7 @@ export const BackgroundWrapper = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  background: rgba(0, 0, 0, 1);
+  background: black;
   overflow: hidden;
   min-height: 100vh;
   max-height: 100vh;
@@ -138,35 +139,43 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export const PopUp = styled.div`
+  margin: 0;
+  padding: 0;
   z-index: 99999;
-  width: 50vw;
-  height: 6rem;
+  width: 90vw;
   position: absolute;
-  top: 33%;
+  bottom: 15%;
+  left: 5vw;
   animation: ${Animation.slideInTopRight};
-  background-color: rgba(125, 0, 245, 0.6);
 `;
 
-export const ButtonWrapper = styled.div`
-  z-index: 200;
-  width: 70vw;
-  height: 10vh;
-  :hover {
-    -webkit-animation: ${vibrate} 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-      infinite;
-    animation: ${vibrate} 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+export const PopUpContent = styled.div`
+  margin: 0rem;
+  display: -webkit-flex; /* Safari */
+  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  h1 {
+    font-size: 3rem;
+    padding: 0.5rem;
   }
 `;
 
+export const SVGButtonWrapper = styled.svg`
+  height: 3rem;
+  width: 3rem;
+`;
+
 export const StartButton = styled.button`
-  font-family: "Source Serif Pro";
+  /* font-family: "Source Serif Pro"; */
   z-index: 200;
   color: white;
-  width: 70vw;
-  height: 10vh;
-  background-color: rgba(125, 0, 245, 0.6);
+  width: 100%;
+  background-color: transparent;
   border-radius: 15px;
-  font-size: 2rem;
+  font-size: 4rem;
   display: flex;
   align-items: center;
   text-align: center;
@@ -174,11 +183,17 @@ export const StartButton = styled.button`
 `;
 
 export const MasqTitle = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: red; */
+  width: 100%;
+  align-self: center;
   z-index: 200;
   color: rgba(0, 0, 0, 1);
   font-size: 10rem;
-  margin: -1.5rem;
-  padding: -30rem;
+  /* margin: -1.5rem; */
+  /* padding: -30rem; */
   -webkit-animation: ${flipVerticalFwd} 0.4s
     cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: ${flipVerticalFwd} 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)

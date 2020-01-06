@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Rock+Salt&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Princess+Sofia&display=swap");
+* {
+  /* font-family: "Princess Sofia" !important; */
+  font-family: "Source Serif Pro";
+  color: white;
+}
+
 .Massacre {
   font-family: "Rock Salt";
   color: indianred;
@@ -17,8 +23,7 @@
 .Masq {
   font-family: "Princess Sofia";
   color: fuchsia;
-  margin-top: -1rem;
-  padding-top: -2rem;
+  padding: 1rem 0rem;
 }
 
 .MasqInline {

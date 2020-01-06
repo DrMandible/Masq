@@ -133,7 +133,7 @@ export const TextDivider = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   th {
@@ -174,8 +174,8 @@ export const ScreenWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: red;
-  background: ${props => props.secondaryColor};
+  background: black;
+  background: ${props => props.bgColor};
   background-image: url("https://i.imgur.com/17x3OSQ.png");
 `;
 
@@ -203,36 +203,18 @@ export const Mask = styled.div`
   overflow: visible;
 `;
 
-export const BackgroundImage = styled.div`
-  background: black;
-  z-index: 100;
-  height: 80vw;
-  width: 80vw;
-  background: url(${props => props.imageUrl});
-  background-position: right center;
-  -webkit-background-position: right center;
-  -webkit-background-size: cover;
-  background-size: cover;
-  transform: rotate(-90deg);
-  border: 1px solid brown;
-  border-radius: 2rem;
-  box-shadow: inset 0 0 10vw 10vw ${props => props.bgColor};
-`;
-
 export const BackgroundSVGWrapper = styled.div`
   -webkit-animation: ${slideInTopRight} 1s cubic-bezier(0.075, 0.82, 0.165, 1)
     both;
   animation: ${slideInTopRight} 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
   animation-delay: 0.3s;
-
-  height: 50vw;
 `;
 
 export const BackgroundSVG = styled.svg`
   margin-top: 5vw;
   width: 40vw;
   height: 40vw;
-  --sparkle1: ${props => props.sparkle1};
+  --sparkle1: ${props => props.leftEye};
   --sparkle2: ${props => props.sparkle2};
   --left-eye-shadow: ${props => props.leftEyeShadow};
   --left-eye: ${props => props.leftEye};

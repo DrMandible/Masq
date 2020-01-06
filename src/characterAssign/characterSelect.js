@@ -1,37 +1,33 @@
 import React from "react";
 import * as Styled from "./styled";
 import { Link } from "@reach/router";
-import { character } from "./character";
+import { character } from "../database/players";
 import { masks } from "./masks";
+import { PlayerMask } from "../assets";
 import { SecretIdentity } from "./secretIdentity";
 import { assignMask } from "./assign";
 import { Gossip } from "../gossip/gossip";
+
 import UIController from "../UIController";
 
-import { ReactComponent as Mask } from "./mask.svg";
+// import { ReactComponent as Mask } from "./mask.svg";
 // console.log(UIController());
-assignMask();
+// assignMask();
 
 export const CharacterSelect = () => {
   const [show, setShow] = React.useState(UIController());
-  const mask = masks[character.mask];
-  const random = () => {
-    window.location.reload();
-  };
+  const mask = character.color;
+  console.log(character);
+  console.log(mask);
 
   return (
     <>
       <div>
-        <Styled.ScreenWrapper secondaryColor={mask.secondary}>
+        <Styled.ScreenWrapper bgColor={character.color.background}>
           <Styled.BackgroundSVGWrapper>
-            <Styled.BackgroundSVG
-              sparkle1={"purple"}
-              sparkle2={"pink"}
-              rightEye={mask.primary}
-              leftEye={mask.primary}
-            >
-              <Mask />
-            </Styled.BackgroundSVG>
+            <div style={{ height: "1rem" }} />
+            <PlayerMask />
+            {/* </Styled.BackgroundSVG> */}
           </Styled.BackgroundSVGWrapper>
           <Styled.TextWrapper onClick={() => setShow(UIController("secret"))}>
             <SecretIdentity secretReveal={show.secret} palette={mask} />
@@ -47,18 +43,18 @@ export const CharacterSelect = () => {
         </Styled.ScreenWrapper>
 
         {/* Routing */}
-        {/* <Link to="/">
+        <Link to="/">
           <Styled.HomeButton>
             <span role="img" aria-label="Home">
               🏰
             </span>
           </Styled.HomeButton>
-        </Link> */}
-        <Styled.RandomButton onClick={random}>
+        </Link>
+        {/* <Styled.RandomButton onClick={random}>
           <span role="img" aria-label="Randomize">
             🔄
           </span>
-        </Styled.RandomButton>
+        </Styled.RandomButton> */}
       </div>
     </>
   );

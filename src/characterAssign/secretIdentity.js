@@ -17,11 +17,11 @@ export const SecretIdentity = props => {
               <b>Hide Secret identity</b>
             </p>
           </Styled.TextDivider>
-          <Styled.TextDivider bgColor={palette.secondary}>
+          <Styled.TextDivider bgColor={palette.background}>
             <Styled.CharacterTitle>{SECRET_ID}</Styled.CharacterTitle>
             <div>You are {SECRET_ID_PROPERTIES.bucket}</div>
           </Styled.TextDivider>
-          <Styled.TextDivider bgColor={palette.secondary}>
+          <Styled.TextDivider bgColor={palette.background}>
             <table>
               <tbody>
                 <tr>
@@ -37,7 +37,7 @@ export const SecretIdentity = props => {
           </Styled.TextDivider>
         </>
       ) : (
-        <Styled.TextDivider bgColor={palette.secondary}>
+        <Styled.TextDivider bgColor={palette.background}>
           <p>
             <b>Secret identity</b>
           </p>

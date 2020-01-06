@@ -5,5 +5,6 @@ export const character = {
   secretID: 999,
   charm: 7,
   Clues: [],
+  design: "",
   color: { primary: "", secondary: "" }
 };
