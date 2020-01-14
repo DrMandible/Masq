@@ -8,17 +8,9 @@ import { ReactComponent as MustacheMask } from "./mustacheMask.svg";
 import { ReactComponent as TopFeathersMask } from "./topFeathersMask.svg";
 import { character } from "../database/players";
 
-export const BWMask = props => {
-  return (
-    <>
-      <div>{masks[character.design]}</div>
-    </>
-  );
-};
-
 const MaskWithFeathers = props => {
   return (
-    <Styled.MaskIcon>
+    <Styled.MaskIcon height={props.height} width={props.width}>
       <Styled.SVGButtonWrapper
         primary={props.primary}
         secondary={props.secondary}
@@ -31,7 +23,7 @@ const MaskWithFeathers = props => {
 
 const MaskWithSparkles = props => {
   return (
-    <Styled.MaskIcon>
+    <Styled.MaskIcon height={props.height} width={props.width}>
       <Styled.SVGButtonWrapper
         primary={props.primary}
         secondary={props.secondary}
@@ -44,7 +36,7 @@ const MaskWithSparkles = props => {
 
 const MaskWithMustache = props => {
   return (
-    <Styled.MaskIcon>
+    <Styled.MaskIcon height={props.height} width={props.width}>
       <Styled.SVGButtonWrapper
         primary={props.primary}
         secondary={props.secondary}
@@ -56,7 +48,7 @@ const MaskWithMustache = props => {
 };
 const MaskWithTopFeathers = props => {
   return (
-    <Styled.MaskIcon>
+    <Styled.MaskIcon height={props.height} width={props.width}>
       <Styled.SVGButtonWrapper
         primary={props.primary}
         secondary={props.secondary}
@@ -103,10 +95,10 @@ export const PlayerMask = () => {
 };
 
 export const ColoredMask = props => {
-  const [current, send] = useMachine(homeMachine);
-  let data = current.context.data.character;
-  let maskName = data.design;
-  let colors = props;
+  let maskName = props.maskName;
+  let colors = props.color;
+
+  // console.log("[ColoredMask] props: ", props);
 
   switch (maskName) {
     case "Feather Mask":
@@ -114,6 +106,9 @@ export const ColoredMask = props => {
         <MaskWithFeathers
           primary={colors.primary}
           secondary={colors.secondary}
+          shadow={colors.shadow}
+          height={props.height}
+          width={props.width}
         />
       );
     case "Sparkle Mask":
@@ -121,6 +116,8 @@ export const ColoredMask = props => {
         <MaskWithSparkles
           primary={colors.primary}
           secondary={colors.secondary}
+          height={props.height}
+          width={props.width}
         />
       );
     case "Mustache Mask":
@@ -128,6 +125,8 @@ export const ColoredMask = props => {
         <MaskWithMustache
           primary={colors.primary}
           secondary={colors.secondary}
+          height={props.height}
+          width={props.width}
         />
       );
     case "Top Feathers Mask":
@@ -135,6 +134,8 @@ export const ColoredMask = props => {
         <MaskWithTopFeathers
           primary={colors.primary}
           secondary={colors.secondary}
+          height={props.height}
+          width={props.width}
         />
       );
     default:

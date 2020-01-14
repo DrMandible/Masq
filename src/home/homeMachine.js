@@ -15,6 +15,12 @@ export const homeMachine = Machine({
     splash: {
       id: "splash",
       on: {
+        INPUT_NAME: "inputName"
+      }
+    },
+    inputName: {
+      id: "inputName",
+      on: {
         DESIGN: "design"
       }
     },
@@ -30,7 +36,7 @@ export const homeMachine = Machine({
     },
     confirm: {
       id: "confirm",
-      on: { ACCEPT: "complete", CANCEL: "design" }
+      on: { ACCEPT: "complete", CANCEL: "inputName" }
     },
     complete: {
       type: "final"

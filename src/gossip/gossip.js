@@ -1,76 +1,53 @@
 import React from "react";
-import * as Styled from "../characterAssign/styled";
-import * as StyledGossip from "./styled";
-import UIController from "../UIController";
-import { ReactComponent as Mask } from "../characterAssign/mask.svg";
+import * as Styled from "../theme/styles";
 import { character } from "../characterAssign/character";
-import { NPC } from "../database/players.js";
+import { useMachine } from "@xstate/react";
+import { gossipMachine } from "./gossipMachine";
+import { ConfirmGossip } from "./confirmGossip";
+import { NPCList } from "./npcList";
 
-let AllNPC = NPC();
+export const GossipList = props => {
+  const [current, send] = useMachine(gossipMachine);
+  let palette = current.context.data.character.color;
 
-const NPCList = () => {
-  let x = Object.keys(AllNPC).map((npc, key) => npc);
-  return (
-    <div>
-      {x.map((npc, key) => (
-        <div key={key}>
-          <Styled.TextWrapper>
-            <StyledGossip.NPCWrapper>
-              <Styled.TextDivider
-                bgColor={Object.values(AllNPC)[key].color.secondary}
-              >
-                <Styled.TextDivider
-                  bgColor={Object.values(AllNPC)[key].color.background}
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "flex-end"
-                  }}
-                >
-                  {npc}
-                  <div>{Object.values(AllNPC)[key].charm}</div>
-                  <StyledGossip.IconWrapper>
-                    <StyledGossip.Icon
-                      sparkle1={Object.values(AllNPC)[key].color.secondary}
-                      sparkle2={Object.values(AllNPC)[key].color.secondary}
-                      rightEye={Object.values(AllNPC)[key].color.primary}
-                      leftEye={Object.values(AllNPC)[key].color.primary}
-                    >
-                      <Mask />
-                    </StyledGossip.Icon>
-                  </StyledGossip.IconWrapper>
-                </Styled.TextDivider>
-              </Styled.TextDivider>
-            </StyledGossip.NPCWrapper>
-          </Styled.TextWrapper>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export const Gossip = props => {
-  let palette = props.palette;
-  let reveal = props.gossipReveal;
   return (
     <>
-      <Styled.TextDivider bgColor={palette.primary}>
-        {reveal ? (
-          <>
-            <Styled.TextDivider bgColor={"gray"}>
-              Hide Gossip
-            </Styled.TextDivider>
-            <NPCList />
-          </>
-        ) : (
-          <Styled.TextDivider bgColor={palette.background}>
-            <div>
-              <b>Gossip</b>
-            </div>
-          </Styled.TextDivider>
-        )}
-      </Styled.TextDivider>
-      <Styled.Footer>❤️ : {character.charm}</Styled.Footer>
+      <>
+        <Styled.TextDivider bgColor={palette.primary}>
+          {current.matches("idle") && (
+            <>
+              <Styled.TextDivider
+                bgColor={palette.secondary}
+                onClick={() => send("HIDE")}
+                style={{ zIndex: "99999", pointerEvents: "auto" }}
+              >
+                Hide Gossip
+              </Styled.TextDivider>
+              <NPCList current={current} send={send} />
+            </>
+          )}
+
+          {current.matches("hide") && (
+            <>
+              <Styled.TextDivider
+                bgColor={palette.background}
+                onClick={() => send("SHOW")}
+                style={{ zIndex: "99999", pointerEvents: "auto" }}
+              >
+                Show Gossip
+              </Styled.TextDivider>
+            </>
+          )}
+
+          {current.matches("confirm") && (
+            <>
+              <ConfirmGossip current={current} send={send} />
+            </>
+          )}
+        </Styled.TextDivider>
+
+        <Styled.Footer>❤️ : {character.charm}</Styled.Footer>
+      </>
     </>
   );
 };

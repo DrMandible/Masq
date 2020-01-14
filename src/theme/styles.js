@@ -51,13 +51,8 @@ export const RandomButton = styled.button`
   }
 `;
 
-export const HomeButton = styled.div`
-  /* background: transparent; */
-  /* background: purple; */
-  background: url("https://twemoji.maxcdn.com/v/12.1.4/72x72/1f3ad.png");
-  background-size: cover;
-  height: 2rem;
-  width: 2rem;
+export const HomeButton = styled.button`
+  background: transparent;
   font-size: 2rem;
   margin: 0;
   padding: 0;
@@ -120,9 +115,9 @@ export const TextDivider = styled.div`
   animation: ${slideInTopRight} 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) both;
   animation-delay: 0.1s;
   pointer-events: auto;
-  margin: 0.3rem;
-  padding: 0.2rem;
-  width: 90%;
+  margin: 0.2rem;
+  padding: 0.1rem;
+  width: 95%;
   border: 1px solid black;
   border-radius: 15px;
   background: black;
@@ -143,11 +138,22 @@ export const TextDivider = styled.div`
     1px 1px 0 #000;
   th {
     text-align: right;
+    padding: 1rem;
   }
   td {
     text-align: left;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000;
+  }
+
+  .outerCircleButton {
+    min-width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    background-image: url("https://i.imgur.com/17x3OSQ.png");
   }
 `;
 
@@ -169,6 +175,21 @@ export const CharacterTitle = styled.div`
   z-index: 999;
 `;
 
+export const StartButton = styled.button`
+  /* font-family: "Source Serif Pro"; */
+  z-index: 200;
+  color: white;
+  width: 100%;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: transparent;
+  border-radius: 15px;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+`;
 export const ScreenWrapper = styled.div`
   -webkit-box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 1);
   box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 1);

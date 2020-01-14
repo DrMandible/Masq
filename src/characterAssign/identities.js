@@ -1,10 +1,11 @@
-export const secretIDs = {
+export const identities = {
   Princess: {
+    name: "Princess",
     priority: "A",
-    bucket: "royalty",
+    bucket: "in the royal family",
     power: {
-      source: "Princess's Necklace",
-      description: "+7 charm at the beginning of every round."
+      source: "Kiss",
+      description: "Change a frog back to normal."
     },
     goal: {
       description: "Identify everyone who is up to no good.",
@@ -13,10 +14,11 @@ export const secretIDs = {
     }
   },
   King: {
+    name: "King",
     priority: "A",
-    bucket: "royalty",
+    bucket: "in the royal family",
     power: {
-      source: "King's Crown",
+      source: "Scepter",
       description:
         "Choose a character to throw into the dungeons at the end of each round."
     },
@@ -27,12 +29,15 @@ export const secretIDs = {
     }
   },
   Knight: {
+    name: "Knight",
     priority: "A",
-    bucket: "royalty",
+    bucket: "from distant lands",
     power: {
-      source: "Queen's Crown",
+      source: "Sword",
       description:
-        "Choose a character to throw into the dungeons at the end of each round."
+        "Choose a character to guard at the beginning of each round.",
+      longDescription:
+        "Choose a character to guard at the beginning of each round. If a player who is up to no good targets character you're guarding, throw that player into the dungeons."
     },
     goal: {
       description: "Identify everyone who is up to no good.",
@@ -41,7 +46,8 @@ export const secretIDs = {
     }
   },
   Sorceress: {
-    priority: "A",
+    name: "Sorceress",
+    priority: "B",
     bucket: "up to no good",
     power: {
       source: "Spellbook",
@@ -54,16 +60,50 @@ export const secretIDs = {
     }
   },
   "Jewel Thief": {
-    priority: "C",
+    name: "Jewel Thief",
+    priority: "B",
     bucket: "up to no good",
     power: {
       source: "Lockpicks",
-      description: "Steal from a character you gossipped with this round."
+      description: "Steal from a character you gossipped about this round.",
+      longDescription:
+        "Steal from a character you gossipped about this round. If that player was the Princess, gain the Princess Necklace. Otherwise gain 3 charm."
     },
     goal: {
-      description: "Steal the Princess's Necklace and the King's Crown.",
+      description: "Steal from the Princess.",
       target: "King",
       effect: "win"
+    }
+  },
+  Prince: {
+    name: "Prince",
+    priority: "C",
+    bucket: "from distant lands",
+    power: {
+      source: "charm",
+      description:
+        "Gain two extra charm whenever another player gossips about you."
+    },
+    goal: {
+      description: "Have 25 charm",
+      target: "charm",
+      effect: "medal"
+    }
+  },
+  Singer: {
+    name: "Singer",
+    priority: "C",
+    bucket: "from distant lands",
+    power: {
+      source: "wardrobe",
+      description:
+        "At the start of every round you gain 3 charm and all other players gain 1 charm."
+    },
+    goal: {
+      description:
+        "End the game with your identity still a secret from everyone.",
+      target: "identity",
+      effect: "medal"
     }
   }
 };

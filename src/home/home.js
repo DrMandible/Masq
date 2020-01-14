@@ -1,29 +1,19 @@
 import React from "react";
 import { Design } from "./design";
 import { Colors } from "./colors";
+import { InputName } from "./inputName";
 import { useMachine } from "@xstate/react";
 import { homeMachine } from "./homeMachine";
-import { PlayerMask } from "../assets";
+import { ColoredMask } from "../assets";
 import { Link } from "@reach/router";
 
 import "./styles.css";
 
 import * as Styled from "./styled";
-import * as Themed from "../characterAssign/styled";
+import * as Themed from "../theme/styles";
 
 export const HomeScreen = () => {
   const [current, send] = useMachine(homeMachine);
-  const data = current.context.data.character;
-
-  React.useEffect(() => {
-    console.log(
-      "[Home.js] homeMachine current.value:",
-      current.value,
-      "\n",
-      "homeMachine current.context.data.character:",
-      data
-    );
-  }, [current, data]);
 
   return (
     <>
@@ -44,12 +34,32 @@ export const HomeScreen = () => {
         {current.matches("splash") && (
           <Themed.TextDivider
             onClick={() => {
-              send("DESIGN");
+              send("INPUT_NAME");
             }}
           >
             <Styled.StartButton>Play</Styled.StartButton>
           </Themed.TextDivider>
         )}
+
+        {current.matches("inputName") && (
+          <Themed.TextDivider>
+            <InputName />
+            <Styled.StartButton
+              style={{
+                zIndex: "9999999",
+                pointerEvents: "auto",
+                margin: "1rem"
+                // color: "black"
+              }}
+              onClick={() => {
+                send("DESIGN");
+              }}
+            >
+              SUBMIT
+            </Styled.StartButton>
+          </Themed.TextDivider>
+        )}
+
         {current.matches("design") && (
           <div
             onClick={() => {
@@ -70,57 +80,66 @@ export const HomeScreen = () => {
           </Themed.TextDivider>
         )}
         {current.matches("confirm") && (
-          <h1 style={{ zIndex: "998" }}>
-            <Themed.TextDivider
-              style={{ padding: "1rem", zIndex: "999" }}
-              bgColor="rgba(153, 116, 3, 1)"
-            >
-              <PlayerMask />
-              Confirm
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  margin: "1rem"
-                }}
-              >
-                <Themed.TextDivider
-                  onClick={() => {
-                    send("CANCEL");
-                    console.log(current);
-                  }}
-                  style={{ padding: "1rem" }}
-                  bgColor="red"
-                >
-                  Cancel
-                </Themed.TextDivider>
-                <Link to="characterAssign">
-                  <Themed.TextDivider
-                    onClick={() => {
-                      send("ACCEPT");
-                      console.log(current);
-                    }}
-                    style={{ padding: "1rem" }}
-                    bgColor="green"
-                  >
-                    Accept
-                  </Themed.TextDivider>
-                </Link>
-              </div>
-            </Themed.TextDivider>
-          </h1>
+          <ConfirmSetup current={current} send={send} />
         )}
-        {current.matches("complete") && (
-          <h1
-            style={{
-              zIndex: "201"
-            }}
-          >
-            <PlayerMask />
-            <Link to="characterAssign">Begin</Link>
-          </h1>
-        )}
+        {current.matches("complete") && <></>}
       </Styled.BackgroundWrapper>
     </>
+  );
+};
+
+export const ConfirmSetup = ({ current, send }) => {
+  const data = current.context.data.character;
+  return (
+    <h1 style={{ zIndex: "998" }}>
+      <Themed.TextDivider
+        style={{ padding: "1rem", zIndex: "999" }}
+        bgColor={data.color.background}
+      >
+        <h1>{data.Name}</h1>
+
+        <ColoredMask maskName={data.design} color={data.color} />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            margin: "1rem"
+          }}
+        >
+          <Themed.TextDivider
+            onClick={() => {
+              send("CANCEL");
+              console.log(current);
+            }}
+            style={{
+              padding: "1rem",
+              minWidth: "25vw",
+              minHeight: "25vw",
+              justifyContent: "center"
+            }}
+            bgColor="red"
+          >
+            Try Again
+          </Themed.TextDivider>
+          <Link to="characterAssign">
+            <Themed.TextDivider
+              onClick={() => {
+                send("ACCEPT");
+                console.log(current);
+              }}
+              style={{
+                padding: "1rem",
+                minWidth: "25vw",
+                minHeight: "25vw",
+                justifyContent: "center"
+              }}
+              bgColor="green"
+            >
+              Accept
+            </Themed.TextDivider>
+          </Link>
+        </div>
+      </Themed.TextDivider>
+    </h1>
   );
 };

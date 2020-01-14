@@ -4,11 +4,13 @@ import * as Masks from "./index";
 
 export const MaskIcon = styled.div`
   height: 7rem;
+  height: ${props => props.height};
   width: 6rem;
+  width: ${props => props.width};
 `;
 export const SVGButtonWrapper = styled.svg`
-  height: 6rem;
-  width: 6rem;
+  height: 100%;
+  width: 100%;
   --primary: ${props => props.primary};
   --secondary: ${props => props.secondary};
 `;

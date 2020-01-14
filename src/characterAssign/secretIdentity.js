@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "./styled";
+import * as Styled from "../theme/styles";
 import { secretIDs } from "./identities";
 import * as assign from "./assign";
 
@@ -12,7 +12,7 @@ export const SecretIdentity = props => {
     <Styled.TextDivider bgColor={palette.primary} textColor="black">
       {secretReveal ? (
         <>
-          <Styled.TextDivider bgColor="black">
+          <Styled.TextDivider bgColor={palette.secondary}>
             <p>
               <b>Hide Secret identity</b>
             </p>

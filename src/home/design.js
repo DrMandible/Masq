@@ -4,14 +4,6 @@ import * as HomeStyled from "./styled";
 import { masks } from "../assets";
 import { character } from "../database/players";
 
-export const BWMask = props => {
-  return (
-    <>
-      <div>{masks[character.design]}</div>
-    </>
-  );
-};
-
 const Choices = () => {
   const setDesign = e => {
     character.design = e;
@@ -27,8 +19,8 @@ const Choices = () => {
               width: "7rem",
               height: "7rem",
               justifyContent: "center",
-              margin: "0",
-              backgroundImage: 'url("https://i.imgur.com/17x3OSQ.png")'
+              margin: "0"
+              // backgroundImage: 'url("https://i.imgur.com/17x3OSQ.png")'
             }}
             onClick={() => setDesign(Object.keys(masks)[key])}
           >
@@ -46,7 +38,7 @@ export const Design = props => {
       <HomeStyled.PopUp>
         <Styled.TextWrapper>
           <Styled.TextDivider bgColor="rgba(15,10,20,00.1)">
-            <Styled.TextDivider bgColor="white">
+            <Styled.TextDivider bgColor="gray">
               <span>
                 <h1
                   style={{

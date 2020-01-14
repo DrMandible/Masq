@@ -1,5 +1,5 @@
 import { character } from "./character";
-import { masks } from "./masks";
+// import { masks } from "./masks";
 import { secretIDs } from "./identities.js";
 
 const chooseRandom = arrayOfObjects => {
